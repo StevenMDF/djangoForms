@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="contact-form">
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_subject">Subject</label>
+        {{ form.subject }}
+    </div>
+    <div class="form-group">
+        <label for="id_message">Message</label>
+        {{ form.message }}
+    </div>
+    <div class="form-group">
+        <label for="id_sender">Sender</label>
+        {{ form.sender }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_cc_myself">CC-myself</label>
+        {{ form.cc_myself }}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock %}
